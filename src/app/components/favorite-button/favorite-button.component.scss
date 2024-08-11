@@ -1,0 +1,12 @@
+.favorite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 100%;
+
+  &__number {
+    margin-left: 8px;
+    font-size: 16px;
+  }
+}

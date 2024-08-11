@@ -9,7 +9,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'characters-list/:favorites',
+    path: 'characters-list/favorites',
     loadComponent: () =>
       import('./components/characters-list/characters-list.component').then(
         (c) => c.CharactersListComponent

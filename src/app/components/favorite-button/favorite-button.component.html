@@ -1,0 +1,22 @@
+
+<article class='favorite'>
+  @if(isFavorite || favoritesLength){
+    <img
+      class='favorite__img cursor-pointer'
+      src="./assets/img/favorite-active.svg"
+      [height]="height"
+      [width]="width"
+    />
+  } @else {
+    <img
+      class='favorite__img cursor-pointer'
+      src="./assets/img/favorite-inactive.svg"
+      [height]="height"
+      [width]="width"
+    />
+  }
+
+  @if(numberVisible) {
+    <span class='favorite__number'>{{favoritesLength}}</span>
+  }
+</article>
