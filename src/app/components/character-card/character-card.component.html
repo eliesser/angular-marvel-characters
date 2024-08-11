@@ -1,1 +1,20 @@
-<p>character-card works!</p>
+<section
+  class='characters-card'
+>
+  <section class='characters-card__img-content'>
+    <article
+      *ngIf="character?.thumbnail?.path && character?.thumbnail?.extension"
+      class='characters-card__img-content__img'
+      [style.background-image]="
+        'url(' + (character.thumbnail?.path +'.'+ character.thumbnail?.extension) + ')'
+      "
+    ></article>
+  </section>
+  <section class='characters-card__info bg-primary text-secondary'>
+    <article class='characters-card__info__name'>
+      {{character.name}}
+    </article>
+    <app-favorite-button [height]="12" [width]="12"/>
+    <article class='characters-card__info__triangle'></article>
+  </section>
+</section>
