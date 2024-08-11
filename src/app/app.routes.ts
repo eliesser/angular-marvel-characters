@@ -9,6 +9,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'characters-list/:favorites',
+    loadComponent: () =>
+      import('./components/characters-list/characters-list.component').then(
+        (c) => c.CharactersListComponent
+      ),
+  },
+  {
     path: 'character/:id',
     loadComponent: () =>
       import('./components/character-detail/character-detail.component').then(

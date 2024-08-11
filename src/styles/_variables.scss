@@ -1,0 +1,42 @@
+$breakpoint-tablet: 640px;
+$breakpoint-desktop: 1024px;
+
+$primary: #000;
+$secondary: #FFF;
+$marvel-red: #EC1D24;
+
+$colors: (
+  primary: $primary,
+  secondary: $secondary,
+  marvel-red: $marvel-red
+);
+
+@mixin mobile {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: ($breakpoint-tablet + 1px)) and (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color;
+  }
+}
