@@ -12,6 +12,10 @@
     padding-left: 16px;
     box-sizing: border-box;
 
+    @include respond-to('tablet') {
+      padding-left: 48px;
+    }
+
     .title {
       font-size: 24px;
       font-weight: 700;
@@ -82,25 +86,8 @@
           font-weight: 400;
           line-height: 14.06px;
           text-align: left;
-
         }
       }
-    }
-  }
-}
-
-@include tablet {
-  .comics {
-    .content {
-      padding-left: 48px;
-    }
-  }
-}
-
-@include desktop {
-  .comics {
-    .content {
-      padding-left: 48px;
     }
   }
 }

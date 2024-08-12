@@ -12,6 +12,19 @@
     width: 100%;
     box-sizing: border-box;
 
+    @include respond-to('tablet') {
+      display: flex;
+      flex-direction: row;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    @include respond-to('desktop') {
+      padding-left: 48px;
+      box-sizing: border-box;
+    }
+
     &__img-content {
       &__img {
         height: 400px;
@@ -19,6 +32,11 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+
+        @include respond-to('tablet') {
+          height: 278px;
+          width: 278px;
+        }
       }
     }
 
@@ -33,6 +51,14 @@
       padding-right: 16px;
       width: 100%;
       box-sizing: border-box;
+
+      @include respond-to('tablet') {
+        justify-content: center;
+        padding-top: 48px;
+        padding-bottom: 48px;
+        padding-left: 48px;
+        padding-right: 48px;
+      }
 
       &__content__name {
         display: flex;
@@ -81,62 +107,5 @@
     height: 0;
     border-left: 24px solid transparent;
     border-bottom: 24px solid white;
-  }
-}
-
-@include tablet {
-  .comics-header {
-    &__content {
-      display: flex;
-      flex-direction: row;
-      max-width: 960px;
-      width: 100%;
-      margin: 0 auto;
-
-      &__img-content {
-
-        &__img {
-          height: 278px;
-          width: 278px;
-        }
-      }
-
-      &__info {
-        justify-content: center;
-        padding-top: 48px;
-        padding-bottom: 48px;
-        padding-left: 48px;
-        padding-right: 48px;
-      }
-    }
-  }
-}
-
-@include desktop {
-  .comics-header {
-    &__content {
-      display: flex;
-      flex-direction: row;
-      padding-left: 48px;
-      max-width: 960px;
-      width: 100%;
-      margin: 0 auto;
-      box-sizing: border-box;
-
-      &__img-content {
-        &__img {
-          height: 278px;
-          width: 278px;
-        }
-      }
-
-      &__info {
-        justify-content: center;
-        padding-top: 48px;
-        padding-bottom: 48px;
-        padding-left: 48px;
-        padding-right: 48px;
-      }
-    }
   }
 }

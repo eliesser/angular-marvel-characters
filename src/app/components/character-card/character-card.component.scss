@@ -1,21 +1,19 @@
 @import '../../../styles/variables';
 
-.characters-card {
+.card {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 172px;
 
-  &__img-content {
-    &__img {
-      height: 190px;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+  .card-image {
+    height: 190px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  &__info {
+  .card-description {
     position: relative;
     display: flex;
     align-items: center;
@@ -26,14 +24,20 @@
     padding-right: 16px;
     border-top: 5px solid $marvel-red;
 
-    &__name {
+    .name {
+      width: calc(100% - 14px);
+      height: 18px;
       text-transform: uppercase;
-      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      /* 
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+      */
     }
 
-    &__triangle {
+    .triangle {
       position: absolute;
       right: -1px;
       bottom: -1px;

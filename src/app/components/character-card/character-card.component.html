@@ -1,18 +1,18 @@
 <section
-  class='characters-card cursor-pointer'
+  class='characters-card cursor-pointer card'
   [routerLink]="['/character', character.id]"
 >
-  <section class='characters-card__img-content'>
+  <section class='characters-card__img-content card-image'>
     <article
       *ngIf="character?.thumbnail?.path && character?.thumbnail?.extension"
-      class='characters-card__img-content__img'
+      class='characters-card__img-content__img card-image'
       [style.background-image]="
         'url(' + (character.thumbnail?.path +'.'+ character.thumbnail?.extension) + ')'
       "
     ></article>
   </section>
-  <section class='characters-card__info bg-primary text-secondary'>
-    <article class='characters-card__info__name'>
+  <section class='characters-card__info bg-primary text-secondary card-description'>
+    <article class='characters-card__info__name name'>
       {{character.name}}
     </article>
     <app-favorite-button 
@@ -21,6 +21,6 @@
       [width]="12" 
       (click)="onToggleFavorite($event)"
     />
-    <article class='characters-card__info__triangle'></article>
+    <article class='characters-card__info__triangle triangle'></article>
   </section>
 </section>

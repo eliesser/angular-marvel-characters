@@ -1,5 +1,11 @@
-$breakpoint-tablet: 640px;
-$breakpoint-desktop: 1024px;
+$breakpoints: (
+  'mobile-small': 320px,
+  'mobile': 480px,
+  'tablet-small': 768px,
+  'tablet': 830px,
+  'desktop-small': 1024px,
+  'desktop': 1300px
+);
 
 $primary: #000;
 $secondary: #FFF;
@@ -11,24 +17,6 @@ $colors: (
   marvel-red: $marvel-red
 );
 
-@mixin mobile {
-  @media (max-width: $breakpoint-tablet) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: ($breakpoint-tablet + 1px)) and (max-width: $breakpoint-desktop) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: $breakpoint-desktop) {
-    @content;
-  }
-}
-
 @each $name, $color in $colors {
   .bg-#{$name} {
     background-color: $color;
@@ -38,5 +26,13 @@ $colors: (
 @each $name, $color in $colors {
   .text-#{$name} {
     color: $color;
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @media (min-width: $value) {
+    @content;
   }
 }
