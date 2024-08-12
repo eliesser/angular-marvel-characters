@@ -1,21 +1,18 @@
-import { NgIf } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-import { Subscription } from 'rxjs';
-
 import { ICharacter } from '../../interfaces/character.interface';
+import { NgIf } from '@angular/common';
 import { FavoriteButtonComponent } from '../favorite-button/favorite-button.component';
+import { Subscription } from 'rxjs';
 import { FavoriteService } from '../../services/favorite/favorite.service';
 
 @Component({
-  selector: 'app-character-card',
+  selector: 'app-character-detail-header',
   standalone: true,
-  imports: [NgIf, FavoriteButtonComponent, RouterModule],
-  templateUrl: './character-card.component.html',
-  styleUrl: './character-card.component.scss',
+  imports: [NgIf, FavoriteButtonComponent],
+  templateUrl: './character-detail-header.component.html',
+  styleUrl: './character-detail-header.component.scss',
 })
-export class CharacterCardComponent {
+export class CharacterDetailHeaderComponent {
   @Input() character!: ICharacter;
 
   favorites: ICharacter[] = [];
@@ -48,7 +45,7 @@ export class CharacterCardComponent {
   }
 
   isFavorite() {
-    return this.favorites.some((fav) => fav.id === this.character.id);
+    return this.favorites.some((fav) => fav?.id === this.character?.id);
   }
 
   ngOnDestroy(): void {

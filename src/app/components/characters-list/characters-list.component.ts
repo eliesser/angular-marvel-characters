@@ -29,12 +29,6 @@ export class CharactersListComponent {
     this.favoritesWatch();
   }
 
-  getAll() {
-    this.characterService.getAll().subscribe((results: IResults) => {
-      this.characters = results.results;
-    });
-  }
-
   favoritesWatch() {
     this.favoritesSubscription = this.favoriteService
       .favoritesWatch()
@@ -46,6 +40,12 @@ export class CharactersListComponent {
           this.getAll();
         }
       });
+  }
+
+  getAll() {
+    this.characterService.getAll().subscribe((results: IResults) => {
+      this.characters = results.results;
+    });
   }
 
   ngOnDestroy(): void {

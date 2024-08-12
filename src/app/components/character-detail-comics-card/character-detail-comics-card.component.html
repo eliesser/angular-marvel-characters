@@ -1,0 +1,20 @@
+<article>
+  <section class='img-content'>
+    <article
+      *ngIf="comic?.thumbnail?.path && comic?.thumbnail?.extension"
+      class='img'
+      [style.background-image]="
+        'url(' + (comic.thumbnail?.path +'.'+ comic.thumbnail?.extension) + ')'
+      "
+    ></article>
+  </section>
+  <section class='description'>
+    <section class='description__title'>{{ comic.title }}</section>
+    <section 
+      *ngIf="comic.dates !== undefined && comic.dates?.length"
+      class='year'
+    >
+      {{ comic.dates[0].date }}
+    </section>
+  </section>
+</article>

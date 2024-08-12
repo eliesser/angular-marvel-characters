@@ -1,0 +1,11 @@
+<section class='comics'>
+  <section class='content'>
+    <section class='title'>COMICS</section>
+    <section class='list'>
+      <app-character-detail-comics-card 
+        *ngFor="let comic of comics"
+        [comic] = "comic"
+      />
+    </section>
+  </section>
+</section>
