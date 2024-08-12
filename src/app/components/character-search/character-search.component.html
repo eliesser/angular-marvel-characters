@@ -1,17 +1,21 @@
-
-  <form class='search'>
-    <section class='search__content'>
-      <img 
-        class='search__icon'
-        src="./assets/img/search-icon.svg"
-      />
-      <input
-        class='search__input'
-        type='text'
-        placeholder='Search a character...'
-      />
-    </section>
-    <section class='search__results'>
-      {{ cantCharacters + ' RESULTS' }}
-    </section>
-  </form>
+<form  
+  class='search'
+  [formGroup]="searchForm"
+>
+  <section class='search__content'>
+    <img 
+      class='search__icon'
+      src="./assets/img/search-icon.svg"
+    />
+    <input
+      class='search__input'
+      type='text'
+      placeholder='Search a character...'
+      formControlName="search"
+      (keydown.enter)="onKeydownEnter()"
+    />
+  </section>
+  <section class='search__results'>
+    {{ cantCharacters + ' RESULTS' }}
+  </section>
+</form>

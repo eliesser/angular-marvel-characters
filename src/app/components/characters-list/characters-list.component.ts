@@ -36,17 +36,19 @@ export class CharactersListComponent {
       .subscribe((favorites: ICharacter[]) => {
         const isFavoritesRoute = this.router.url.includes('favorites');
         if (isFavoritesRoute) {
-          this.characters = favorites; // Si estamos en la ruta de favoritos, asigna `favorites` a `characters`
+          this.characters = favorites;
         } else {
           this.getAll();
         }
       });
   }
 
-  getAll() {
-    this.characterService.getAll().subscribe((results: IResults) => {
-      this.characters = results.results;
-    });
+  getAll(nameStartsWith?: string) {
+    this.characterService
+      .getAll(nameStartsWith)
+      .subscribe((results: IResults) => {
+        this.characters = results.results;
+      });
   }
 
   ngOnDestroy(): void {

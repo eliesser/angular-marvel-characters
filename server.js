@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
 
-  // aqui se agregan las aplicaciones
   var whiteList = [
     '*',
     'http:// localhost:4200'
@@ -30,13 +29,22 @@ app.use(function (req, res, next) {
 });
 
 app.get('/characters', (req, res) => {
+  const nameStartsWith = req.query.nameStartsWith || '';
+
   fs.readFile(path.join(__dirname, 'db.json'), 'utf8', (err, data) => {
     if (err) {
       res.status(500).json({ error: 'Error reading data' });
     }
     try {
-      const db = JSON.parse(data);
-      res.json(db.characters);
+      let characters = JSON.parse(data).characters;
+
+      if (nameStartsWith) {
+        characters.data.results = characters.data.results.filter(character =>
+          character.name.toLowerCase().startsWith(nameStartsWith.toLowerCase())
+        );
+      }
+
+      res.json(characters);
     } catch (parseError) {
       res.status(500).json({ error: 'Error parsing data' });
     }
