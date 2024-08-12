@@ -14,7 +14,12 @@
     <article class='characters-card__info__name'>
       {{character.name}}
     </article>
-    <app-favorite-button [height]="12" [width]="12"/>
+    <app-favorite-button 
+      [isFavorite]="isFavorite()" 
+      [height]="12" 
+      [width]="12" 
+      (click)="onToggleFavorite($event)"
+    />
     <article class='characters-card__info__triangle'></article>
   </section>
 </section>

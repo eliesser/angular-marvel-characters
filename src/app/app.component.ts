@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { HeaderComponent } from './components/header/header.component';
+import { FavoriteService } from './services/favorite/favorite.service';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +12,19 @@ import { HeaderComponent } from './components/header/header.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'angular-marvel-characters';
+  private favoriteService = inject(FavoriteService);
+
+  ngOnInit() {
+    this.getFavoritesFromLocalStorage();
+  }
+
+  getFavoritesFromLocalStorage() {
+    const storedFavoritesString = localStorage.getItem('favorites');
+
+    const favorites = storedFavoritesString
+      ? JSON.parse(storedFavoritesString)
+      : [];
+
+    this.favoriteService.favoritesSet(favorites);
+  }
 }

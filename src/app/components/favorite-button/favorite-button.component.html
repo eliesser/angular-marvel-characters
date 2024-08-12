@@ -1,6 +1,6 @@
 
 <article class='favorite'>
-  @if(isFavorite || favoritesLength){
+  @if(isFavorite){
     <img
       class='favorite__img cursor-pointer'
       src="./assets/img/favorite-active.svg"
@@ -16,7 +16,7 @@
     />
   }
 
-  @if(numberVisible) {
+  @if(favoritesLength>=0) {
     <span class='favorite__number'>{{favoritesLength}}</span>
   }
 </article>

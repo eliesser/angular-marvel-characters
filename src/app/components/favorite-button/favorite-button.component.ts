@@ -9,8 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class FavoriteButtonComponent {
   @Input() isFavorite: boolean = false;
-  @Input() numberVisible: boolean = false;
-  @Input() favoritesLength: number = 0;
+  @Input() favoritesLength: number = -1;
   @Input() height: number = 24;
   @Input() width: number = 24;
 }

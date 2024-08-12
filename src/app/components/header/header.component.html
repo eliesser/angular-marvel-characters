@@ -5,5 +5,9 @@
     routerLink="/characters-list"
   />
 
-  <app-favorite-button/>
+  <app-favorite-button 
+    [isFavorite]="favorites.length>0"
+    [favoritesLength]="favorites.length" 
+    (click)="onGoToFavorites()"
+  />
 </section>
