@@ -13,7 +13,7 @@ export class FavoriteService {
     this.favorites = new BehaviorSubject<ICharacter[]>([]);
   }
 
-  favoritesWatch(): Observable<any> {
+  favoritesWatch(): Observable<ICharacter[]> {
     return this.favorites.asObservable();
   }
 
