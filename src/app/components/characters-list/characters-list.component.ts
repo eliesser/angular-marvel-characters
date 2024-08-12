@@ -8,11 +8,12 @@ import { CharacterService } from '../../services/character/character.service';
 import { ICharacter, IResults } from '../../interfaces/character.interface';
 import { CharacterCardComponent } from '../character-card/character-card.component';
 import { FavoriteService } from '../../services/favorite/favorite.service';
+import { CharacterSearchComponent } from '../character-search/character-search.component';
 
 @Component({
   selector: 'app-characters-list',
   standalone: true,
-  imports: [CharacterCardComponent, NgFor],
+  imports: [CharacterCardComponent, NgFor, CharacterSearchComponent],
   templateUrl: './characters-list.component.html',
   styleUrl: './characters-list.component.scss',
 })

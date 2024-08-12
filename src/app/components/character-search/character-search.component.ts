@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-character-search',
   standalone: true,
   imports: [],
   templateUrl: './character-search.component.html',
-  styleUrl: './character-search.component.scss'
+  styleUrl: './character-search.component.scss',
 })
 export class CharacterSearchComponent {
-
+  @Input() cantCharacters: number = 0;
 }

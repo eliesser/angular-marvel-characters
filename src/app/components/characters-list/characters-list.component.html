@@ -1,4 +1,5 @@
 <section class='characters-list'>
+  <app-character-search [cantCharacters]="characters.length"/>
   <section class='characters-list__content card-container'>
     <app-character-card 
       *ngFor="let character of characters" 
