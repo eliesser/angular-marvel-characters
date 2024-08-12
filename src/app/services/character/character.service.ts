@@ -21,7 +21,11 @@ const hash = CryptoJS.MD5(`${ts}${privateKey}${apikey}`).toString();
 export class CharacterService {
   private http = inject(HttpClient);
 
-  getAll(limit: number = 50, offset: number = 0): Observable<IResults> {
+  getAll(
+    nameStartsWith: string = '',
+    limit: number = 50,
+    offset: number = 0
+  ): Observable<IResults> {
     let params = new HttpParams({
       fromObject: {
         ts,
@@ -31,6 +35,9 @@ export class CharacterService {
         offset,
       },
     });
+
+    if (nameStartsWith.length)
+      params = params.set('nameStartsWith', nameStartsWith);
 
     return this.http
       .get<IResponseMarvelApi>(`${environment.apiUrl}/characters`, { params })
