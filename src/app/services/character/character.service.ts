@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 
 import { map, Observable } from 'rxjs';
 import * as CryptoJS from 'crypto-js';
+import 'dotenv/config';
 
 import { environment } from '../../../environments/environment';
 import {
@@ -14,8 +15,8 @@ import {
   IResponseCharacterComics,
 } from '../../interfaces/character-comics.interface';
 
-const apikey: string = '275da4e49492409cb52a347e15b6826c';
-const privateKey: string = 'a005878e4c5473a03ac181d2115266c96d7da992';
+const apikey: string = process.env['PUBLIC_API_KEY_MARVEL'] as string;
+const privateKey: string = process.env['PRIVATE_API_KEY_MARVEL'] as string;
 const ts = new Date().getTime();
 const hash = CryptoJS.MD5(`${ts}${privateKey}${apikey}`).toString();
 

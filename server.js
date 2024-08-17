@@ -12,7 +12,7 @@ app.use(function (req, res, next) {
 
   var whiteList = [
     '*',
-    'http:// localhost:4200'
+    'http://localhost:4200'
   ];
 
   var origen = req.headers.origin;
